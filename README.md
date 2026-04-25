@@ -6,8 +6,8 @@ This example demonstrates how to implement [Ultralytics YOLOv8](https://docs.ult
 
 ## Clone
 ```bash
-git clone https://github.com/ultralyticsultralytics.git
-cd ultralytics/examplesYOLOv8-OpenCV-ONNX-Python/
+git clone https://github.com/weslleyskah/detector.git
+cd detector
 ```
 
 ## Requirements
@@ -24,7 +24,7 @@ uv run yolo export model=yolov8n.pt imgsz=640format=onnx opset=12
 
 ## Image
 Download a sample image or use a local one.
-Save it as ``image.jpg`` inside the``ultralytics/examples/YOLOv8-OpenCV-ONNX-Pyton`` directory.
+Save it as ``image.jpg`` inside the``detector`` directory.
 
 ## Run
 
