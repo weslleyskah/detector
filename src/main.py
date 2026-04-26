@@ -1,15 +1,20 @@
 from __future__ import annotations
-
 import argparse
 from typing import Any
 
+from pathlib import Path
+
 import cv2.dnn
 import numpy as np
-
-from ultralytics.utils import ASSETS, ROOT, YAML
+from ultralytics.utils import ROOT, YAML
 
 CLASSES = YAML.load(ROOT / "cfg/datasets/coco8.yaml")["names"]
 colors = np.random.uniform(0, 255, size=(len(CLASSES), 3))
+
+# Paths
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+MODEL_PATH = PROJECT_ROOT / "models"
+IMAGE_PATH = PROJECT_ROOT / "data" / "img"
 
 
 def draw_bounding_box(
@@ -116,6 +121,7 @@ def main(onnx_model: str, input_image: str) -> list[dict[str, Any]]:
         )
 
     # Display the image with bounding boxes
+    cv2.imwrite(IMAGE_PATH / "main_output.png", original_image)
     cv2.imshow("image", original_image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
@@ -125,7 +131,7 @@ def main(onnx_model: str, input_image: str) -> list[dict[str, Any]]:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="yolov8n.onnx", help="Input your ONNX model.")
-    parser.add_argument("--img", default=str(ASSETS / "bus.jpg"), help="Path to input image.")
+    parser.add_argument("--model", default=str(PROJECT_ROOT / "models" / "yolov8n.onnx"))
+    parser.add_argument("--img", default=str(PROJECT_ROOT / "data" / "img" / "image.png"))
     args = parser.parse_args()
     main(args.model, args.img)
