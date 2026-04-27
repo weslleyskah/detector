@@ -31,7 +31,12 @@ Download a sample image or use a local one.
 Save it as ``image.jpg`` inside the``detector`` directory.
 
 ## Run
-The script will perform object detection on the image using the `yolov8n.onnx` model and display the results.
+The script will perform object detection on the images and save the results on ``data/img/output``.
 ```bash
+cd detector/src
+
+# Run one image
 uv run main.py --model yolov8n.onnx --img image.png
+# Run multiple images
+uv run main.py
 ```
