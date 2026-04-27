@@ -1,4 +1,4 @@
-# YOLO Object Detection with OpenCV
+# Object Detection with YOLO and OpenCV
 
 This example demonstrates how to implement [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) object detection using [OpenCV](https://opencv.org/) in [Python](https://www.python.org/), leveraging the [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model format for efficient inference.
 
