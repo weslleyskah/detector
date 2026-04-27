@@ -120,18 +120,27 @@ def main(onnx_model: str, input_image: str) -> list[dict[str, Any]]:
             round((box[1] + box[3]) * scale),
         )
 
-    # Display the image with bounding boxes
-    cv2.imwrite(IMAGE_PATH / "main_output.png", original_image)
-    cv2.imshow("image", original_image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # Save the images with original filename (.stem) + "output"
+
+    output_filename = Path(input_image).stem + "_output" + Path(input_image).suffix
+    cv2.imwrite(str(IMAGE_PATH / "output" / output_filename), original_image)
 
     return detections
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+
     parser.add_argument("--model", default=str(PROJECT_ROOT / "models" / "yolov8n.onnx"))
-    parser.add_argument("--img", default=str(PROJECT_ROOT / "data" / "img" / "image.png"))
+    parser.add_argument("--img", default=None)
     args = parser.parse_args()
-    main(args.model, args.img)
+
+    # Pass the argument for every image inside the input folder to test the model on multiple images
+
+    if args.img:
+        # Single image mode
+        main(args.model, args.img)
+    else:
+        # Batch mode
+        for img in (IMAGE_PATH / "input").glob("*.*"):
+            main(args.model, str(img))
