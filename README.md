@@ -2,9 +2,10 @@
 
 This example demonstrates how to implement [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) object detection using [OpenCV](https://opencv.org/) in [Python](https://www.python.org/), leveraging the [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model format for efficient inference.
 
-<img src="./data/notes/film_168.png">
-
-<img src="./data/notes/film_168_output.png">
+| Original | Output |
+|----------|--------|
+| <img src="./data/notes/film_124.png"> | <img src="./data/notes/film_124_output.png"> |
+| <img src="./data/notes/film_168.png"> | <img src="./data/notes/film_168_output.png"> |
 
 # Setup
 
