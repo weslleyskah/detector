@@ -20,9 +20,14 @@ models/*.weights
 models/*.h5
 
 # Data
-# data/img/output/
+data/img/output
+data/video/input
+data/video/output
 
 # OS
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Files
+.env

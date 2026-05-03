@@ -35,10 +35,14 @@ The script will perform object detection on the images and save the results on `
 ```bash
 cd detector/src
 
+# Run image detector
 # Run one image
 uv run main.py --model yolov8n.onnx --img image.png
 # Run multiple images
 uv run main.py
 # Run with yolo26
 uv run main2.py 
+
+# Run video_detector
+uv run video_detector.py --save
 ```
